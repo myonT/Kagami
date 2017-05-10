@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using System;
+
+
+public class FPSScript : MonoBehaviour {
+
+	public Camera camera;
+
+	int playerHP = 10;
+
+	// Use this for initialization
+	void Start () {
+		Screen.lockCursor = true;
+		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetMouseButtonDown (0)) {
+			Shot ();
+		} 
+	}
+
+
+
+	void PlayerDamage(){
+		playerHP -= 1;
+	}
+
+	void Shot(){
+		int distance = 10;
+		Vector3 center = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		Ray ray = camera.ScreenPointToRay (center);
+		RaycastHit hitInfo;
+
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if(hitInfo.collider.tag == "Enemy"){
+				hitInfo.collider.SendMessage ("Damage");
+			}
+		}
+	}
+}
+
