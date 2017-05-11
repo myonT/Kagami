@@ -5,19 +5,21 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour {
 
 	public GameObject enemy;
-	//public GameObject Gene;   //時間があったら近づいてスポーン実装する
-	//public GameObject PlayerC;
+	public GameObject Gene;   //時間があったら近づいてスポーン実装する
+	public GameObject PlayerC;
 
 	//public int diss = 2;
 
-	//float dis;
+	float dis;
 
 	//bool isCalled = false;
 
 
 	// Use this for initialization
 	void Start () {
+		if (dis <= 15.0f) {
 			InvokeRepeating ("Generate", 0, 30);
+		}
 		}
 		/*
 		switch(diss){
@@ -31,7 +33,7 @@ public class EnemyGenerator : MonoBehaviour {
 		*/
 
 	void Update () {
-	/*
+
 		Vector3 Apos = PlayerC.transform.position;
 		Vector3 Bpos = Gene.transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
