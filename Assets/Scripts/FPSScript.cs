@@ -15,6 +15,10 @@ public class FPSScript : MonoBehaviour {
 	public GameObject blueballn;
 	public GameObject selectedGameObject;
 
+	public GameObject spark;
+
+	public GameObject rock;
+
 	public int playerHP = 10;
 
 	// Use this for initialization
@@ -59,11 +63,20 @@ public class FPSScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
-			if(hitInfo.collider.tag == "Enemy"){
+			if (hitInfo.collider.tag == "Enemy") {
 				hitInfo.collider.SendMessage ("Damage");
 			}
 		}
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if (hitInfo.collider.tag == "break") {
+				Instantiate (spark, transform.position, Quaternion.identity);
+				Destroy (rock);
+			}
+		}
 	}
+
 	void search(){
 		int distance = 10;
 		Vector3 center = new Vector3 (Screen.width / 2, Screen.height / 2, 0);

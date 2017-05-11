@@ -42,7 +42,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,8 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000011, guid: 71cdd9830cf764381a8422013a9187ba,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -2891,6 +2892,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6146846, y: 1.7276249, z: 2.8167076}
   m_Center: {x: -0.0000004172325, y: 0.8616917, z: -0.00000005960464}
+--- !u!114 &1422163872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422163870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb670c03acdbe49fe94f9b4ca5d15f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1434212083
 Prefab:
   m_ObjectHideFlags: 0
@@ -3468,6 +3480,7 @@ GameObject:
   - component: {fileID: 1529987091}
   - component: {fileID: 1529987090}
   - component: {fileID: 1529987089}
+  - component: {fileID: 1529987092}
   m_Layer: 8
   m_Name: blueball
   m_TagString: clickable
@@ -3538,6 +3551,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529987087}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1529987092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529987087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: -0.000015258789, y: 0.0000026226044, z: 0}
 --- !u!1 &1531685534
 GameObject:
   m_ObjectHideFlags: 0
@@ -7223,6 +7248,8 @@ MonoBehaviour:
   redballn: {fileID: 1441237674}
   blueballn: {fileID: 1467874457}
   selectedGameObject: {fileID: 0}
+  spark: {fileID: 167042, guid: 5ff7098700dbdbf4a93dc6ab0d9d92a0, type: 2}
+  rock: {fileID: 1422163870}
   playerHP: 10
 --- !u!65 &1876139201
 BoxCollider:
@@ -7524,6 +7551,10 @@ Prefab:
     - target: {fileID: 400000, guid: b863148e046b1074c8ed5babb793679b, type: 3}
       propertyPath: m_LocalScale.z
       value: 4.4215403
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b863148e046b1074c8ed5babb793679b, type: 3}
+      propertyPath: m_TagString
+      value: break
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b863148e046b1074c8ed5babb793679b, type: 3}
