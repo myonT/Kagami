@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
+
 
 
 public class PlayerController : MonoBehaviour {
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject selectedGameObject;
 
 
-	int playerHP = 10;
+	public int playerHP = 10;
 
 	int keycount = 0;
 
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 				Shot ();
 				search ();
+				Next ();
 			} 
 		}
 
@@ -128,6 +131,20 @@ public class PlayerController : MonoBehaviour {
 						itembtnkey5.SetActive (true);
 						keycount++;
 						break;
+			}
+		}
+	}
+	void Next(){
+		int distance = 10;
+		Vector3 center = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		Ray ray = camera.ScreenPointToRay (center);
+		RaycastHit hitInfo;
+
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			if(hitInfo.collider.tag == "Next"){
+				if(keycount==5){
+					SceneManager.LoadScene("06");
+				}
 			}
 		}
 	}
