@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject itemkey;
 	public GameObject itemkey2;
+	public GameObject itemkey5;
 	public GameObject itembtnkey;
 	public GameObject itembtnkey2;
 	public GameObject itembtnkey3;
 	public GameObject itembtnkey4;
+	public GameObject itembtnkey5;
 	public GameObject selectedGameObject;
 
 
@@ -34,10 +36,13 @@ public class PlayerController : MonoBehaviour {
 		itemkey2 = GameObject.Find ("key2");
 		itemkey2.SetActive (false);
 
+		itemkey5 = GameObject.Find ("key5");
+		itemkey5.SetActive (true);
+
 		itembtnkey = GameObject.Find ("itembtnkey");
 		itembtnkey.SetActive (false);
 
-		itembtnkey2 = GameObject.Find ("itembtnkey2");
+		itembtnkey2 = GameObject.Find ("222");
 		itembtnkey2.SetActive (false);
 
 		itembtnkey3 = GameObject.Find ("itembtnkey3");
@@ -45,6 +50,9 @@ public class PlayerController : MonoBehaviour {
 
 		itembtnkey4 = GameObject.Find ("itembtnkey4");
 		itembtnkey4.SetActive (false);
+
+		itembtnkey5 = GameObject.Find ("itembtnkey5");
+		itembtnkey5.SetActive (false);
 
 	}
 	
@@ -75,11 +83,13 @@ public class PlayerController : MonoBehaviour {
 				hitInfo.collider.SendMessage ("Damage");
 				selectedGameObject = hitInfo.collider.gameObject;
 				switch (selectedGameObject.name) {
-				case "EnemyN 1":
+				case "EnemyN1":
 					itembtnkey3.SetActive (true);
+					keycount++;
 					break;
-				case "EnemyN 1 (1)":
+				case "EnemyN2":
 					itembtnkey4.SetActive (true);
+					keycount++;
 					break;
 				}
 			}
@@ -106,12 +116,17 @@ public class PlayerController : MonoBehaviour {
 					case "key":
 						itemkey.SetActive (false);
 						itembtnkey.SetActive (true);
-						//keycount++;
+						keycount++;
 						break;
 					case "key2":
 						itemkey2.SetActive (false);
 						itembtnkey2.SetActive (true);
-						//keycount++;
+						keycount++;
+						break;
+					case "key5":
+						itemkey5.SetActive (false);
+						itembtnkey5.SetActive (true);
+						keycount++;
 						break;
 			}
 		}
