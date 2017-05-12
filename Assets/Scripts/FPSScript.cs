@@ -13,13 +13,20 @@ public class FPSScript : MonoBehaviour {
 	public GameObject blueball;
 	public GameObject redballn;
 	public GameObject blueballn;
+	public GameObject Shipla;
+	public GameObject redballshi;
+	public GameObject blueballshi;
 	public GameObject selectedGameObject;
 
 	public GameObject spark;
 
 	public GameObject rock;
+	public GameObject rock2;
 
 	public int playerHP = 10;
+	public int countb = 0;
+
+	public bool shingou;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +44,12 @@ public class FPSScript : MonoBehaviour {
 
 		blueballn = GameObject.Find ("blueballn");
 		blueballn.SetActive (false);
+
+		redballshi = GameObject.Find ("redballshi");
+		redballshi.SetActive (false);
+
+		blueballshi = GameObject.Find ("blueballshi");
+		blueballshi.SetActive (false);
 
 	}
 
@@ -75,6 +88,15 @@ public class FPSScript : MonoBehaviour {
 				Destroy (rock);
 			}
 		}
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if (hitInfo.collider.name == "Rockss") {
+				if(shingou = true)
+				Instantiate (spark, transform.position, Quaternion.identity);
+				Destroy (rock2);
+			}
+		}
 	}
 
 	void search(){
@@ -91,11 +113,31 @@ public class FPSScript : MonoBehaviour {
 			case "redball":
 				redball.SetActive (false);
 				redballn.SetActive (true);
+				countb++;
 				break;
 			case "blueball":
 				blueball.SetActive (false);
 				blueballn.SetActive (true);
+				countb++;
 				break;
+			}
+		}
+
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			selectedGameObject = hitInfo.collider.gameObject;
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if (countb == 2) {
+				switch (selectedGameObject.name) {
+				case "Shipla":
+					redballn.SetActive (false);
+					blueballn.SetActive (false);
+					redballshi.SetActive (true);
+					blueballshi.SetActive (true);
+					shingou = true;
+					break;
+
+				}
 			}
 		}
 	}
