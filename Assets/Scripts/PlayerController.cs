@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
@@ -14,17 +15,26 @@ public class PlayerController : MonoBehaviour {
 	public GameObject itemkey;
 	public GameObject itemkey2;
 	public GameObject itemkey5;
+	public GameObject itemkey6;
 	public GameObject itembtnkey;
 	public GameObject itembtnkey2;
 	public GameObject itembtnkey3;
 	public GameObject itembtnkey4;
 	public GameObject itembtnkey5;
+	public GameObject itembtnkey6;
+	public GameObject itembtnkey7;
+	public GameObject Books;
+	public GameObject Books2;
 	public GameObject selectedGameObject;
 
 
 	public int playerHP = 10;
+	Slider slider;
 
-	int keycount = 0;
+	public int keycount = 0;
+
+	int raycount = 0;
+
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +51,9 @@ public class PlayerController : MonoBehaviour {
 		itemkey5 = GameObject.Find ("key5");
 		itemkey5.SetActive (true);
 
+		itemkey6 = GameObject.Find ("key6");
+		itemkey6.SetActive (false);
+
 		itembtnkey = GameObject.Find ("itembtnkey");
 		itembtnkey.SetActive (false);
 
@@ -56,6 +69,13 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey5 = GameObject.Find ("itembtnkey5");
 		itembtnkey5.SetActive (false);
 
+		itembtnkey6 = GameObject.Find ("Books");
+		itembtnkey6.SetActive (false);
+
+		itembtnkey7 = GameObject.Find ("Books2");
+		itembtnkey7.SetActive (false);
+
+		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
 	
 	// Update is called once per frame
@@ -69,9 +89,11 @@ public class PlayerController : MonoBehaviour {
 
 
 
-	void PlayerDamage(){
-		playerHP -= 1;
+	public void PlayerDamage(){
+		playerHP--;
+		slider.value = playerHP;
 	}
+
 
 	void Shot(){
 		int distance = 10;
@@ -94,7 +116,15 @@ public class PlayerController : MonoBehaviour {
 					itembtnkey4.SetActive (true);
 					keycount++;
 					break;
+				default:
+					break;
 				}
+			}
+		}
+
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			if (hitInfo.collider.name == "EnemyN3") {
+				Destroy (hitInfo.collider.gameObject);
 			}
 		}
 	}
@@ -131,6 +161,14 @@ public class PlayerController : MonoBehaviour {
 						itembtnkey5.SetActive (true);
 						keycount++;
 						break;
+					case "Books":
+						Books.SetActive (false);
+						Books2.SetActive (true);
+						break;
+					case "Books2":
+						Books2.SetActive (false);
+						itemkey6.SetActive (true);
+						break;
 			}
 		}
 	}
@@ -148,5 +186,10 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
-}
 
+	//void OnTriggerEnter(Collider collision){
+		//if(collision.gameObject.tag == "Enemy"){
+			//other.gameObject.SendMessage ("PlayerDamage");
+		//	Destroy(gameObject);			
+		}
+	
