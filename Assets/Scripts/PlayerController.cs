@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour {
 	public GameObject itembtnkey5;
 	public GameObject itembtnkey6;
 	public GameObject itembtnkey7;
-	public GameObject Books;
-	public GameObject Books2;
 	public GameObject selectedGameObject;
 
 
@@ -32,8 +30,6 @@ public class PlayerController : MonoBehaviour {
 	Slider slider;
 
 	public int keycount = 0;
-
-	int raycount = 0;
 
 
 	// Use this for initialization
@@ -162,11 +158,11 @@ public class PlayerController : MonoBehaviour {
 						keycount++;
 						break;
 					case "Books":
-						Books.SetActive (false);
-						Books2.SetActive (true);
+						itembtnkey6.SetActive (false);
+						itembtnkey7.SetActive (true);
 						break;
 					case "Books2":
-						Books2.SetActive (false);
+						itembtnkey7.SetActive (false);
 						itemkey6.SetActive (true);
 						break;
 			}

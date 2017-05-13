@@ -32,7 +32,6 @@ public class genemoveScript : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		Debug.Log (GetComponent<Collider>().name);
 		if(col.gameObject.tag == "Player"){
-			Debug.Log (GetComponent<Collider>().name);
 			col.gameObject.SendMessage ("PlayerDamage");
 			//PlayerController damm = GetComponent<PlayerController>();
 			//damm.PlayerDamage ();
