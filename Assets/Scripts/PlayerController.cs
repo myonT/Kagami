@@ -132,49 +132,50 @@ public class PlayerController : MonoBehaviour {
 
 	void search(){
 		//selectedGameObject=null;
-		int distance = 10;
+		int distance = 20;
 		Vector3 center = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
 		Ray ray = camera.ScreenPointToRay (center);
 		RaycastHit hitInfo;
 
-		if (Physics.Raycast (ray, out hitInfo, distance,1 << 8)){
+		if (Physics.Raycast (ray, out hitInfo, distance,1 << 9)){
 			selectedGameObject = hitInfo.collider.gameObject;
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.gameObject);
-			//if(hitInfo.collider.tag == "clickable"){
-				switch(selectedGameObject.name){
-					case "blueSwitch":
-						itemkey.SetActive (true);
-						itemkey2.SetActive (true);
-						break;
-					case "key":
-						itemkey.SetActive (false);
-						itembtnkey.SetActive (true);
-						keycount++;
-						break;
-					case "key2":
-						itemkey2.SetActive (false);
-						itembtnkey2.SetActive (true);
-						keycount++;
-						break;
-					case "key5":
-						itemkey5.SetActive (false);
-						itembtnkey5.SetActive (true);
-						keycount++;
-						break;
-					case "Books1":
-						itembtnkey6.SetActive (false);
-						itembtnkey7.SetActive (true);
-						break;
-					case "Books2":
-						itembtnkey7.SetActive (false);
-						itemkey8.SetActive (true);
-						break;
-					case "key8":
-						itemkey8.SetActive (false);
-						itembtnkey8.SetActive (true);
-						keycount++;
-						break;
+			if (hitInfo.collider.tag == "clickable") {
+				switch (selectedGameObject.name) {
+				case "blueSwitch":
+					itemkey.SetActive (true);
+					itemkey2.SetActive (true);
+					break;
+				case "key":
+					itemkey.SetActive (false);
+					itembtnkey.SetActive (true);
+					keycount++;
+					break;
+				case "key2":
+					itemkey2.SetActive (false);
+					itembtnkey2.SetActive (true);
+					keycount++;
+					break;
+				case "key5":
+					itemkey5.SetActive (false);
+					itembtnkey5.SetActive (true);
+					keycount++;
+					break;
+				case "Books1":
+					itembtnkey6.SetActive (false);
+					itembtnkey7.SetActive (true);
+					break;
+				case "Books2":
+					itembtnkey7.SetActive (false);
+					itemkey8.SetActive (true);
+					break;
+				case "key8":
+					itemkey8.SetActive (false);
+					itembtnkey8.SetActive (true);
+					keycount++;
+					break;
+				}
 			}
 		}
 	}
