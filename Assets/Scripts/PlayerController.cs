@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject itemkey;
 	public GameObject itemkey2;
 	public GameObject itemkey5;
-	public GameObject itemkey6;
+	public GameObject itemkey8;
 	public GameObject itembtnkey;
 	public GameObject itembtnkey2;
 	public GameObject itembtnkey3;
@@ -23,10 +23,12 @@ public class PlayerController : MonoBehaviour {
 	public GameObject itembtnkey5;
 	public GameObject itembtnkey6;
 	public GameObject itembtnkey7;
+	public GameObject itembtnkey8;
 	public GameObject selectedGameObject;
 
 
 	public int playerHP = 10;
+
 	Slider slider;
 
 	public int keycount = 0;
@@ -47,8 +49,8 @@ public class PlayerController : MonoBehaviour {
 		itemkey5 = GameObject.Find ("key5");
 		itemkey5.SetActive (true);
 
-		itemkey6 = GameObject.Find ("key6");
-		itemkey6.SetActive (false);
+		itemkey8 = GameObject.Find ("key8");
+		itemkey8.SetActive (false);
 
 		itembtnkey = GameObject.Find ("itembtnkey");
 		itembtnkey.SetActive (false);
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey2 = GameObject.Find ("222");
 		itembtnkey2.SetActive (false);
 
-		itembtnkey3 = GameObject.Find ("itembtnkey3");
+		itembtnkey3 = GameObject.Find ("333");
 		itembtnkey3.SetActive (false);
 
 		itembtnkey4 = GameObject.Find ("itembtnkey4");
@@ -65,11 +67,14 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey5 = GameObject.Find ("itembtnkey5");
 		itembtnkey5.SetActive (false);
 
-		itembtnkey6 = GameObject.Find ("Books");
-		itembtnkey6.SetActive (false);
+		itembtnkey6 = GameObject.Find ("Books1");
+		itembtnkey6.SetActive (true);
 
 		itembtnkey7 = GameObject.Find ("Books2");
 		itembtnkey7.SetActive (false);
+
+		itembtnkey8 = GameObject.Find ("itembtnkey8");
+		itembtnkey8.SetActive (false);
 
 		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
@@ -157,13 +162,18 @@ public class PlayerController : MonoBehaviour {
 						itembtnkey5.SetActive (true);
 						keycount++;
 						break;
-					case "Books":
+					case "Books1":
 						itembtnkey6.SetActive (false);
 						itembtnkey7.SetActive (true);
 						break;
 					case "Books2":
 						itembtnkey7.SetActive (false);
-						itemkey6.SetActive (true);
+						itemkey8.SetActive (true);
+						break;
+					case "key8":
+						itemkey8.SetActive (false);
+						itembtnkey8.SetActive (true);
+						keycount++;
 						break;
 			}
 		}
