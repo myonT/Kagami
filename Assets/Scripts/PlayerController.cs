@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject selectedGameObject;
 
 
-	public int playerHP = 10;
+	static public int playerHP = 10;
 
 	Slider slider;
 
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
 			if(hitInfo.collider.tag == "Next"){
-				if(keycount==5){
+				if(keycount>=5){
 					SceneManager.LoadScene("06");
 				}
 			}

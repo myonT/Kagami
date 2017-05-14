@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 
 public class FPSScript : MonoBehaviour {
@@ -23,13 +24,19 @@ public class FPSScript : MonoBehaviour {
 	public GameObject rock;
 	public GameObject rock2;
 
-	public int playerHP = 10;
+	Slider slider;
+
 	public int countb = 0;
 
 	public bool shingou;
 
 	// Use this for initialization
 	void Start () {
+
+		if (PlayerController.keycount == 7) {
+			PlayerController.playerHP = 17;
+		}
+
 		Screen.lockCursor = true;
 		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
@@ -63,8 +70,9 @@ public class FPSScript : MonoBehaviour {
 
 
 
-	void PlayerDamage(){
-		playerHP -= 1;
+	public void PlayerDamage(){
+		PlayerController.playerHP--;
+		slider.value = PlayerController.playerHP;
 	}
 
 	void Shot(){
