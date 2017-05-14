@@ -29,11 +29,17 @@ public class PlayerController : MonoBehaviour {
 	public GameObject selectedGameObject;
 
 
-	static public int playerHP = 10;
-	static public int keycount = 0;
-	static public int enemycount = 0;
+	public static int playerHP = 10;
+	public static int keycount = 0;
+	public static int enemycount = 0;
 
-	Slider slider;
+	public static int PlayerHP() {
+		return playerHP;
+	}
+
+	public static Slider slider;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -96,11 +102,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-
+	/*
 	public void PlayerDamage(){
 		playerHP--;
 		slider.value = playerHP;
 	}
+	*/
 
 
 	void Shot(){

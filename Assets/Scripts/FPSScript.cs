@@ -27,11 +27,14 @@ public class FPSScript : MonoBehaviour {
 	Slider slider;
 
 	public int countb = 0;
+	public static int php;
 
 	public bool shingou;
 
 	// Use this for initialization
 	void Start () {
+		
+		int php = PlayerController.PlayerHP();
 
 		Screen.lockCursor = true;
 		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -58,6 +61,7 @@ public class FPSScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (php);
 		if (Input.GetMouseButtonDown (0)) {
 			Shot ();
 			search ();
@@ -67,11 +71,8 @@ public class FPSScript : MonoBehaviour {
 
 
 	public void PlayerDamage(){
-		if (PlayerController.keycount == 7) {
-			PlayerController.playerHP = 17;
-		}
-		PlayerController.playerHP--;
-		slider.value = PlayerController.playerHP;
+		php--;
+		slider.value = PlayerController.PlayerHP();
 	}
 
 	void Shot(){
