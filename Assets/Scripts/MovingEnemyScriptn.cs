@@ -36,7 +36,7 @@ public class MovingEnemyScriptn : MonoBehaviour {
 		Vector3 Apos = PlayerC.transform.position;
 		Vector3 Bpos = enemy.transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
-		Debug.Log ("Distance : " + dis);
+		//Debug.Log ("Distance : " + dis);
 		// 目的地をプレイヤーに設定する。
 		if (dis <= 15.0f) {
 			agent.SetDestination (target.position);//15より近づいたら動き始める
@@ -54,6 +54,8 @@ public class MovingEnemyScriptn : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			col.gameObject.SendMessage ("PlayerDamage");
+			//int PlayerHP = PlayerHPManager.Instance.playerHP;
+			//PlayerHP--;
 			Debug.Log (GetComponent<Collider>().name);
 			Destroy(this.gameObject);			
 		}

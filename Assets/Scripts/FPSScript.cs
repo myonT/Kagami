@@ -24,7 +24,7 @@ public class FPSScript : MonoBehaviour {
 	public GameObject rock;
 	public GameObject rock2;
 
-	//public Text HPtext;
+	public Text HPtext;
 
 	Slider slider;
 
@@ -67,15 +67,11 @@ public class FPSScript : MonoBehaviour {
 			search ();
 		} 
 	}
-
-
-
 	void PlayerDamage(){
 		int PlayerHP = PlayerHPManager.Instance.playerHP;
 		PlayerHP--;
+		HPtext.text = PlayerHP.ToString ();
 		Debug.Log (PlayerHP);
-		//HPtext.text = PlayerHP.ToString ();
-		//slider.value = PlayerHP;
 	}
 
 	void Shot(){

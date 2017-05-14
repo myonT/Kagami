@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 	public Text HPtext;
 
-	//int PlayerHP = PlayerHPManager.Instance.playerHP;
+//	int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public static Slider slider;
 
@@ -105,8 +105,9 @@ public class PlayerController : MonoBehaviour {
 	void PlayerDamage(){
 		int PlayerHP = PlayerHPManager.Instance.playerHP;
 		PlayerHP--;
-		Debug.Log (PlayerHP);
 		HPtext.text = PlayerHP.ToString ();
+		Debug.Log ("give");
+		Debug.Log (PlayerHP);
 	}
 
 
