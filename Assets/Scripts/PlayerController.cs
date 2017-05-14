@@ -16,14 +16,16 @@ public class PlayerController : MonoBehaviour {
 	public GameObject itemkey2;
 	public GameObject itemkey5;
 	public GameObject itemkey8;
+	public GameObject itemkey9;
 	public GameObject itembtnkey;
 	public GameObject itembtnkey2;
 	public GameObject itembtnkey3;
 	public GameObject itembtnkey4;
 	public GameObject itembtnkey5;
-	public GameObject itembtnkey6;
-	public GameObject itembtnkey7;
+	public GameObject Books1;
+	public GameObject Books2;
 	public GameObject itembtnkey8;
+	public GameObject itembtnkey9;
 	public GameObject selectedGameObject;
 
 
@@ -52,6 +54,9 @@ public class PlayerController : MonoBehaviour {
 		itemkey8 = GameObject.Find ("key8");
 		itemkey8.SetActive (false);
 
+		itemkey9 = GameObject.Find ("key9");
+		itemkey9.SetActive (true);
+
 		itembtnkey = GameObject.Find ("itembtnkey");
 		itembtnkey.SetActive (false);
 
@@ -67,14 +72,17 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey5 = GameObject.Find ("itembtnkey5");
 		itembtnkey5.SetActive (false);
 
-		itembtnkey6 = GameObject.Find ("Books1");
-		itembtnkey6.SetActive (true);
+		Books1 = GameObject.Find ("Books1");
+		Books1.SetActive (true);
 
-		itembtnkey7 = GameObject.Find ("Books2");
-		itembtnkey7.SetActive (false);
+		Books2 = GameObject.Find ("Books2");
+		Books2.SetActive (false);
 
 		itembtnkey8 = GameObject.Find ("itembtnkey8");
 		itembtnkey8.SetActive (false);
+
+		itembtnkey9 = GameObject.Find ("itembtnkey9");
+		itembtnkey9.SetActive (false);
 
 		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
@@ -163,11 +171,11 @@ public class PlayerController : MonoBehaviour {
 					keycount++;
 					break;
 				case "Books1":
-					itembtnkey6.SetActive (false);
-					itembtnkey7.SetActive (true);
+					Books1.SetActive (false);
+					Books2.SetActive (true);
 					break;
 				case "Books2":
-					itembtnkey7.SetActive (false);
+					Books2.SetActive (false);
 					itemkey8.SetActive (true);
 					break;
 				case "key8":
@@ -175,6 +183,12 @@ public class PlayerController : MonoBehaviour {
 					itembtnkey8.SetActive (true);
 					keycount++;
 					break;
+				case "key9":
+					itemkey9.SetActive (false);
+					itembtnkey9.SetActive (true);
+					keycount++;
+					break;
+
 				}
 			}
 		}
