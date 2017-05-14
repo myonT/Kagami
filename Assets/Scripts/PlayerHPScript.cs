@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerHPScript : MonoBehaviour {
 
-	public static float hp = 10.0f;
+	public static PlayerHPScript Instance =null;
+	public int playerHP = 10;
+
 	//public static float PlayerHP() {
 		//return playerHP;
 	//}
 
+	void Awake(){
+		if (Instance == null) {
+			Instance = this;
+			DontDestroyOnLoad (this.gameObject);
+		} else {
+			Destroy (this.gameObject);
+		}
+	}
+}
+/*
 	Slider playerHP;
 
 	// Use this for initialization
@@ -28,3 +40,4 @@ public class PlayerHPScript : MonoBehaviour {
 		playerHP.value = hp;
 	}
 }
+*/

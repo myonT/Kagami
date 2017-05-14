@@ -51,9 +51,10 @@ public class MovingEnemyScriptn : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other){
-		if(other.gameObject.name == "FPScontroller"){
-			other.gameObject.SendMessage ("PlayerDamage");
+	void OnTriggerEnter(Collider col){
+		if(col.gameObject.tag == "Player"){
+			col.gameObject.SendMessage ("PlayerDamage");
+			Debug.Log (GetComponent<Collider>().name);
 			Destroy(this.gameObject);			
 		}
 	}

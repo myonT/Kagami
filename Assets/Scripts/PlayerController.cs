@@ -29,13 +29,12 @@ public class PlayerController : MonoBehaviour {
 	public GameObject selectedGameObject;
 
 
-	public static int playerHP = 10;
 	public static int keycount = 0;
 	public static int enemycount = 0;
 
-	public static int PlayerHP() {
-		return playerHP;
-	}
+	public Text HPtext;
+
+	int PlayerHP = PlayerHPScript.Instance.playerHP;
 
 	public static Slider slider;
 
@@ -94,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		int PlayerHP = PlayerHPScript.Instance.playerHP;
 		if (Input.GetMouseButtonDown (0)) {
 				Shot ();
 				search ();
@@ -102,12 +102,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-	/*
-	public void PlayerDamage(){
-		playerHP--;
-		slider.value = playerHP;
+	void PlayerDamage(){
+		PlayerHP--;
+		Debug.Log (PlayerHP);
+		HPtext.text = PlayerHP.ToString ();
+		//slider.value = PlayerHP;
 	}
-	*/
 
 
 	void Shot(){

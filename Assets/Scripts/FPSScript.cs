@@ -24,18 +24,19 @@ public class FPSScript : MonoBehaviour {
 	public GameObject rock;
 	public GameObject rock2;
 
+	public Text HPtext;
+
 	Slider slider;
 
 	public int countb = 0;
-	public static int php;
+
+	int PlayerHP = PlayerHPScript.Instance.playerHP;
 
 	public bool shingou;
 
 	// Use this for initialization
 	void Start () {
-		
-		int php = PlayerController.PlayerHP();
-
+		int PlayerHP = PlayerHPScript.Instance.playerHP;
 		Screen.lockCursor = true;
 		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
@@ -61,7 +62,6 @@ public class FPSScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (php);
 		if (Input.GetMouseButtonDown (0)) {
 			Shot ();
 			search ();
@@ -70,9 +70,11 @@ public class FPSScript : MonoBehaviour {
 
 
 
-	public void PlayerDamage(){
-		php--;
-		slider.value = PlayerController.PlayerHP();
+	void PlayerDamage(){
+		PlayerHP--;
+		Debug.Log (PlayerHP);
+		HPtext.text = PlayerHP.ToString ();
+		//slider.value = PlayerHP;
 	}
 
 	void Shot(){
