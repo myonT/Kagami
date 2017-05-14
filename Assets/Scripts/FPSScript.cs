@@ -18,14 +18,14 @@ public class FPSScript : MonoBehaviour {
 	public GameObject redballshi;
 	public GameObject blueballshi;
 	public GameObject selectedGameObject;
-
 	public GameObject spark;
-
 	public GameObject rock;
 	public GameObject rock2;
 
 	public Text HPtext;
 	public Text coin;
+
+	public InputField inputField;
 
 	Slider slider;
 
@@ -62,7 +62,12 @@ public class FPSScript : MonoBehaviour {
 		blueballshi = GameObject.Find ("blueballshi");
 		blueballshi.SetActive (false);
 
-		StartCoroutine ("speed");  
+		//inputField = GameObject.Find ("Canvas/InputField").GetComponent<InputField> ();
+		//inputField.enabled = false;
+
+		//StartCoroutine ("speed");  
+
+
 
 	}
 
@@ -71,6 +76,7 @@ public class FPSScript : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			Shot ();
 			search ();
+			goal ();
 		} 
 		/*
 		if (coinc != 10) {
@@ -178,6 +184,21 @@ public class FPSScript : MonoBehaviour {
 			}
 		}
 	}
+
+	void goal(){
+		int distance = 10;
+		Vector3 center = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		Ray ray = camera.ScreenPointToRay (center);
+		RaycastHit hitInfo;
+
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if (hitInfo.collider.name == "Goal") {
+				
+		}
+	}
+}
 
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "coin"){
