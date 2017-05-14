@@ -31,7 +31,11 @@ public class FPSScript : MonoBehaviour {
 
 	public int countb = 0;
 
-	public int coinc = 0;
+	int i;
+
+	public float coinc = 0;
+
+	public float speedc;
 
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
@@ -69,6 +73,11 @@ public class FPSScript : MonoBehaviour {
 			Shot ();
 			search ();
 		} 
+		if (coinc > 0) {
+			for(i = 1; i < coinc; i++){//今から時間の間吹っ飛ばす処理書く
+				
+			}
+		}
 	}
 	void PlayerDamage(){
 		int PlayerHP = PlayerHPManager.Instance.playerHP;
