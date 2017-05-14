@@ -31,12 +31,9 @@ public class FPSScript : MonoBehaviour {
 
 	public int countb = 0;
 
-	int i;
-
 	public float coinc = 0;
 
-	public float speedc;
-
+	public float timer;
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public bool shingou;
@@ -65,6 +62,8 @@ public class FPSScript : MonoBehaviour {
 		blueballshi = GameObject.Find ("blueballshi");
 		blueballshi.SetActive (false);
 
+		StartCoroutine ("speed");  
+
 	}
 
 	// Update is called once per frame
@@ -73,12 +72,30 @@ public class FPSScript : MonoBehaviour {
 			Shot ();
 			search ();
 		} 
-		if (coinc > 0) {
-			for(i = 1; i < coinc; i++){//今から時間の間吹っ飛ばす処理書く
-				
+		/*
+		if (coinc != 10) {
+			if (Input.GetKey (KeyCode.LeftShift)) {
+				//e.Handled = True;
+				KeyCode.LeftShift = false;
+			} else {
+				KeyCode.LeftShift = true;
 			}
 		}
-	}
+		/*
+			IEnumerator speed () {  
+				// コルーチンの処理 
+				if (coinc == 10) {
+					if (Input.GetKey (KeyCode.LeftShift)) {
+					KeyCode.LeftShift = KeyCode.LeftShift;
+					}
+					yield return new WaitForSeconds(3.0f);
+					KeyCode.LeftShift = KeyCode.None;
+
+				}
+			}
+			*/
+		}
+
 	void PlayerDamage(){
 		int PlayerHP = PlayerHPManager.Instance.playerHP;
 		PlayerHP--;
