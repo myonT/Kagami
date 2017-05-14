@@ -25,10 +25,13 @@ public class FPSScript : MonoBehaviour {
 	public GameObject rock2;
 
 	public Text HPtext;
+	public Text coin;
 
 	Slider slider;
 
 	public int countb = 0;
+
+	public int coinc = 0;
 
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
@@ -147,6 +150,13 @@ public class FPSScript : MonoBehaviour {
 
 				}
 			}
+		}
+	}
+
+	void OnTriggerEnter(Collider col){
+		if(col.gameObject.tag == "coin"){
+			coin.text = coinc.ToString ();
+			coinc++;		
 		}
 	}
 }

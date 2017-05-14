@@ -54,8 +54,8 @@ public class MovingEnemyScriptn : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			col.gameObject.SendMessage ("PlayerDamage");
-			//int PlayerHP = PlayerHPManager.Instance.playerHP;
-			//PlayerHP--;
+			int PlayerHP = PlayerHPManager.Instance.playerHP;
+			PlayerHP--;
 			Debug.Log (GetComponent<Collider>().name);
 			Destroy(this.gameObject);			
 		}
