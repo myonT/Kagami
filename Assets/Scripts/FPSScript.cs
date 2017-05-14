@@ -30,13 +30,13 @@ public class FPSScript : MonoBehaviour {
 
 	public int countb = 0;
 
-	int PlayerHP = PlayerHPScript.Instance.playerHP;
+	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public bool shingou;
 
 	// Use this for initialization
 	void Start () {
-		int PlayerHP = PlayerHPScript.Instance.playerHP;
+		//int PlayerHP = PlayerHPManager.Instance.playerHP;
 		Screen.lockCursor = true;
 		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
@@ -71,6 +71,7 @@ public class FPSScript : MonoBehaviour {
 
 
 	void PlayerDamage(){
+		int PlayerHP = PlayerHPManager.Instance.playerHP;
 		PlayerHP--;
 		Debug.Log (PlayerHP);
 		HPtext.text = PlayerHP.ToString ();

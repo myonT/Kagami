@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 	public Text HPtext;
 
-	int PlayerHP = PlayerHPScript.Instance.playerHP;
+	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public static Slider slider;
 
@@ -88,12 +88,12 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9 = GameObject.Find ("itembtnkey9");
 		itembtnkey9.SetActive (false);
 
-		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+		//slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		int PlayerHP = PlayerHPScript.Instance.playerHP;
+		//int PlayerHP = PlayerHPManager.Instance.playerHP;
 		if (Input.GetMouseButtonDown (0)) {
 				Shot ();
 				search ();
@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	void PlayerDamage(){
+		int PlayerHP = PlayerHPManager.Instance.playerHP;
 		PlayerHP--;
 		Debug.Log (PlayerHP);
 		HPtext.text = PlayerHP.ToString ();
