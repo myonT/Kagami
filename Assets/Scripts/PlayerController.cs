@@ -107,7 +107,6 @@ public class PlayerController : MonoBehaviour {
 		PlayerHP--;
 		Debug.Log (PlayerHP);
 		HPtext.text = PlayerHP.ToString ();
-		//slider.value = PlayerHP;
 	}
 
 

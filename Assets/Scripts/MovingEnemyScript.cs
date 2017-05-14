@@ -35,7 +35,6 @@ public class MovingEnemyScript : MonoBehaviour {
 		// 目的地をプレイヤーに設定する。
 		if (dis <= 7.0f) {
 			agent.SetDestination (target.position);
-
 		}
 	}
 
@@ -50,9 +49,6 @@ public class MovingEnemyScript : MonoBehaviour {
 		if(col.gameObject.tag == "Player"){
 			col.gameObject.SendMessage ("PlayerDamage");
 			Debug.Log (GetComponent<Collider>().name);
-
-			//PlayerController dam = GetComponent<PlayerController>();
-			//dam.PlayerDamage ();
 			Destroy(this.gameObject);			
 		}
 	}
