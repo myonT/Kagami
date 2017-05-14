@@ -30,11 +30,10 @@ public class PlayerController : MonoBehaviour {
 
 
 	static public int playerHP = 10;
+	static public int keycount = 0;
+	static public int enemycount = 0;
 
 	Slider slider;
-
-	public int keycount = 0;
-
 
 	// Use this for initialization
 	void Start () {
@@ -115,6 +114,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log (hitInfo.collider.name);
 			if(hitInfo.collider.tag == "Enemy"){
 				hitInfo.collider.SendMessage ("Damage");
+				enemycount++;
 				selectedGameObject = hitInfo.collider.gameObject;
 				switch (selectedGameObject.name) {
 				case "EnemyN1":

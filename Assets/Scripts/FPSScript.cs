@@ -33,10 +33,6 @@ public class FPSScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (PlayerController.keycount == 7) {
-			PlayerController.playerHP = 17;
-		}
-
 		Screen.lockCursor = true;
 		//eventsystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
 
@@ -71,6 +67,9 @@ public class FPSScript : MonoBehaviour {
 
 
 	public void PlayerDamage(){
+		if (PlayerController.keycount == 7) {
+			PlayerController.playerHP = 17;
+		}
 		PlayerController.playerHP--;
 		slider.value = PlayerController.playerHP;
 	}
@@ -86,6 +85,7 @@ public class FPSScript : MonoBehaviour {
 			Debug.Log (hitInfo.collider.name);
 			if (hitInfo.collider.tag == "Enemy") {
 				hitInfo.collider.SendMessage ("Damage");
+				PlayerController.enemycount++;
 			}
 		}
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
