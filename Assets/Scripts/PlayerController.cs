@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject selectedGameObject;
 
 
+	//public static PlayerController Instance = new PlayerController();
+	//public static int HP = 10;
 	public static int keycount = 0;
 	public static int enemycount = 0;
 
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour {
 //	int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public static Slider slider;
+
+	void Awake(){
+		Data.Instance.HP = 10;
+		Data.Instance.time = 300;
+	}
 
 
 
@@ -105,11 +112,12 @@ public class PlayerController : MonoBehaviour {
 
 
 	void PlayerDamage(){
-		int PlayerHP = PlayerHPManager.Instance.playerHP;
-		PlayerHP--;
-		HPtext.text = PlayerHP.ToString ();
+		//int PlayerHP = PlayerHPManager.Instance.playerHP;
+		//PlayerHP--;
+		Data.Instance.HP--;
+		HPtext.text = Data.Instance.HP.ToString ();
 		Debug.Log ("give");
-		Debug.Log (PlayerHP);
+		Debug.Log (Data.Instance.HP);
 	}
 
 

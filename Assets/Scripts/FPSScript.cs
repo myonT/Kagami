@@ -25,6 +25,7 @@ public class FPSScript : MonoBehaviour {
 
 	public Text HPtext;
 	public Text coin;
+	//public static int PlayerController;
 
 	public InputField inputField;
 
@@ -38,6 +39,13 @@ public class FPSScript : MonoBehaviour {
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public bool shingou;
+
+	/*
+	void Awake(){
+		Data.Instance.HP = 10;
+		Data.Instance.time = 300;
+	}
+	*/
 
 	// Use this for initialization
 	void Start () {
@@ -67,9 +75,6 @@ public class FPSScript : MonoBehaviour {
 		//inputField.enabled = false;
 
 		//StartCoroutine ("speed");  
-
-
-
 	}
 
 	// Update is called once per frame
@@ -104,10 +109,13 @@ public class FPSScript : MonoBehaviour {
 		}
 
 	void PlayerDamage(){
-		int PlayerHP = PlayerHPManager.Instance.playerHP;
-		PlayerHP--;
-		HPtext.text = PlayerHP.ToString ();
-		Debug.Log (PlayerHP);
+		//int PlayerHP = PlayerHPManager.Instance.playerHP;
+		//PlayerHP--;
+		//HPtext.text = PlayerHP.ToString ();
+		Data.Instance.HP--;
+		HPtext.text = Data.Instance.HP.ToString ();
+		Debug.Log ("give");
+		Debug.Log (Data.Instance.HP);
 		iTween.ShakePosition(this.gameObject, iTween.Hash(
 			"y", 2,
 			"x", 2,
