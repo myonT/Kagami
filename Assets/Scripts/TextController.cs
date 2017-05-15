@@ -108,6 +108,9 @@ public class TextController : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "04") { 
 			SceneManager.LoadScene ("05");
 		}
+		if (SceneManager.GetActiveScene ().name == "07") { 
+			
+		}
 
 	}
 
