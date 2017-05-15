@@ -1,25 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeScript : MonoBehaviour {
-	public Text Time;
-
-	void Awake(){
-		Data.Instance.time = 180.0f;
-		//HPtext.text = Data.Instance.HP.ToString ();
-	}
-
+	public Text time;
+	public static float timeLimit = 180.0f;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		Data.Instance.time -= Time.deltaTime;
-		Time.text = "Time :" + Data.Instance.time.ToString ("f2");
-		
+		timeLimit -= Time.deltaTime;
+		time.text = "Time : " + timeLimit.ToString ("f2");
+		//if (timeLimit < 0.02f) {
+			//SceneManager.LoadScene ("Gameover");
+		}
 	}
-}
