@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class TextControllersa : MonoBehaviour {
+public class TextController : MonoBehaviour {
 
 	const float TEXTSpeed = 0.5f;
 	const float TEXTSpeedSTRING = 0.05f;
@@ -98,6 +99,16 @@ public class TextControllersa : MonoBehaviour {
 	void ScenarioEnd()
 	{
 		Debug.Log("会話終了");
+		if (SceneManager.GetActiveScene ().name == "02") { 
+			SceneManager.LoadScene ("03");
+		}
+		if (SceneManager.GetActiveScene ().name == "03") { 
+			SceneManager.LoadScene ("04");
+		}
+		if (SceneManager.GetActiveScene ().name == "04") { 
+			SceneManager.LoadScene ("05");
+		}
+
 	}
 
 
@@ -108,4 +119,5 @@ public class TextControllersa : MonoBehaviour {
 		
 	}
 }
+			///http://doggy.hatenablog.com/entry/2016/02/27/180114
 

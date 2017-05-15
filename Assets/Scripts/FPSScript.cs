@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class FPSScript : MonoBehaviour {
@@ -200,6 +201,7 @@ public class FPSScript : MonoBehaviour {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
 			if (hitInfo.collider.name == "Goal") {
+				SceneManager.LoadScene("07");
 				
 		}
 	}
