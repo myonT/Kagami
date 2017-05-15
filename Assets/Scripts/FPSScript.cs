@@ -29,7 +29,7 @@ public class FPSScript : MonoBehaviour {
 
 	public InputField inputField;
 
-	Slider slider;
+	Slider sliders;
 
 	public int countb = 0;
 
@@ -40,12 +40,13 @@ public class FPSScript : MonoBehaviour {
 
 	public bool shingou;
 
-	/*
+
+
 	void Awake(){
-		Data.Instance.HP = 10;
-		Data.Instance.time = 300;
+		//Data.Instance.HP;
+		//Data.Instance.time = 300;
 	}
-	*/
+
 
 	// Use this for initialization
 	void Start () {
@@ -75,6 +76,10 @@ public class FPSScript : MonoBehaviour {
 		//inputField.enabled = false;
 
 		//StartCoroutine ("speed");  
+
+		sliders = GameObject.Find ("Sliderf").GetComponent<Slider> ();
+		sliders.value = Data.Instance.HP;
+
 	}
 
 	// Update is called once per frame
@@ -116,6 +121,7 @@ public class FPSScript : MonoBehaviour {
 		HPtext.text = Data.Instance.HP.ToString ();
 		Debug.Log ("give");
 		Debug.Log (Data.Instance.HP);
+		sliders.value = Data.Instance.HP;
 		iTween.ShakePosition(this.gameObject, iTween.Hash(
 			"y", 2,
 			"x", 2,

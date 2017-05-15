@@ -35,14 +35,16 @@ public class PlayerController : MonoBehaviour {
 	public static int enemycount = 0;
 
 	public Text HPtext;
+	public Text time;
 
-//	int PlayerHP = PlayerHPManager.Instance.playerHP;
+//	int PlayerHP = PlayerHP Manager.Instance.playerHP;
 
-	public static Slider slider;
+	Slider slider;
 
 	void Awake(){
 		Data.Instance.HP = 10;
-		Data.Instance.time = 300;
+		Data.Instance.time = 180;
+		//HPtext.text = Data.Instance.HP.ToString ();
 	}
 
 
@@ -95,9 +97,11 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9 = GameObject.Find ("itembtnkey9");
 		itembtnkey9.SetActive (false);
 
-		//slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 
 		//SceneManager.LoadScene("Test");
+
+
 	}
 	
 	// Update is called once per frame
@@ -108,16 +112,18 @@ public class PlayerController : MonoBehaviour {
 				search ();
 				Next ();
 			} 
+
 		}
 
 
 	void PlayerDamage(){
 		//int PlayerHP = PlayerHPManager.Instance.playerHP;
 		//PlayerHP--;
-		Data.Instance.HP--;
+		Data.Instance.HP--;//managerはエラー
 		HPtext.text = Data.Instance.HP.ToString ();
 		Debug.Log ("give");
 		Debug.Log (Data.Instance.HP);
+		slider.value = Data.Instance.HP;
 	}
 
 

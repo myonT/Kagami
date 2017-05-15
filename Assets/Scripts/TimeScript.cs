@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeScript : MonoBehaviour {
-	public Text time;
-	public static float timeLimit = 60.0f;
+	public Text Time;
+
+	void Awake(){
+		Data.Instance.time = 180.0f;
+		//HPtext.text = Data.Instance.HP.ToString ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +18,8 @@ public class TimeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timeLimit -= Time.deltaTime;
-		time.text = "Time :" + timeLimit.ToString ("f2");
+		Data.Instance.time -= Time.deltaTime;
+		Time.text = "Time :" + Data.Instance.time.ToString ("f2");
 		
 	}
 }

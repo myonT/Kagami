@@ -11,7 +11,7 @@ public class PlayerHPManager : MonoBehaviour {
 	//public static float PlayerHP() {
 		//return playerHP;
 	//}
-
+	/*
 	void Awake(){
 		if (Instance == null) {
 			Instance = this;
@@ -20,4 +20,6 @@ public class PlayerHPManager : MonoBehaviour {
 			Destroy (this);
 		}
 	}
+}
+*/
 }
