@@ -107,6 +107,11 @@ public class FPSScript : MonoBehaviour {
 		PlayerHP--;
 		HPtext.text = PlayerHP.ToString ();
 		Debug.Log (PlayerHP);
+		iTween.ShakePosition(this.gameObject, iTween.Hash(
+			"y", 2,
+			"x", 2,
+			"time", 1.0f)
+		);
 	}
 
 	void Shot(){
