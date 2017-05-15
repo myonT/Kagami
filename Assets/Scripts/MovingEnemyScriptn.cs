@@ -21,6 +21,7 @@ public class MovingEnemyScriptn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject player = GameObject.Find ("FPSController");
+		Debug.Log (player);
 		target = player.transform;
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> (); 
 		if (dis <= 7.0f) {
@@ -54,8 +55,8 @@ public class MovingEnemyScriptn : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "Player"){
 			col.gameObject.SendMessage ("PlayerDamage");
-			int PlayerHP = PlayerHPManager.Instance.playerHP;
-			PlayerHP--;
+			//int PlayerHP = PlayerHPManager.Instance.playerHP;
+			//PlayerHP--;
 			Debug.Log (GetComponent<Collider>().name);
 			Destroy(this.gameObject);			
 		}

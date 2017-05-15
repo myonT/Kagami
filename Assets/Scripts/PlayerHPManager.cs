@@ -17,7 +17,7 @@ public class PlayerHPManager : MonoBehaviour {
 			Instance = this;
 			DontDestroyOnLoad (this.gameObject);
 		} else {
-			Destroy (this.gameObject);
+			Destroy (this);
 		}
 	}
 }

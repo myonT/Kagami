@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9.SetActive (false);
 
 		//slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+
+		//SceneManager.LoadScene("Test");
 	}
 	
 	// Update is called once per frame
@@ -209,9 +211,9 @@ public class PlayerController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
 			if(hitInfo.collider.tag == "Next"){
-				if(keycount>=5){
+				//if(keycount>=5){
 					SceneManager.LoadScene("06");
-				}
+				//}
 			}
 		}
 	}
