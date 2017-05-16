@@ -10,7 +10,7 @@ public class TextController : MonoBehaviour {
 	const float TEXTSpeedSTRING = 0.05f;
 	const float COMPLETELINEDELAY = 0.3f;
 
-	[SerializeField] Text textpo;
+	public Text textpo;
 
 	[SerializeField] Text lineText;		// 文字表示Text
 	[SerializeField] string[] scenarios;
@@ -24,8 +24,8 @@ public class TextController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Show ();
+		//textpo.text = "";
 
-		
 	}
 
 	void Show(){
@@ -111,8 +111,10 @@ public class TextController : MonoBehaviour {
 			SceneManager.LoadScene ("05");
 		}
 		if (SceneManager.GetActiveScene ().name == "07") {
-			Time.timeScale = 0;
-			textpo.text = (TimeScript.timeLimit + FPSScript.coinc * 10 + FPSScript.countb * 10 + PlayerController.keycount * 10).ToString ();
+			SceneManager.LoadScene ("Test");
+			//PointsScript.Point ();
+			//Time.timeScale = 0;
+			//textpo.text = (TimeScript.timeLimit + FPSScript.coinc * 10 + FPSScript.countb * 10 + PlayerController.keycount * 10).ToString ();
 		}
 
 	}
