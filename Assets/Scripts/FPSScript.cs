@@ -196,6 +196,13 @@ public class FPSScript : MonoBehaviour {
 				SceneManager.LoadScene("07");	
 		}
 	}
+		if (Physics.Raycast (ray, out hitInfo, distance)) {
+			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
+			Debug.Log (hitInfo.collider.name);
+			if(hitInfo.collider.name == "Goalb"){
+				SceneManager.LoadScene("Over");	
+			}
+		}
 }
 
 	void OnTriggerEnter(Collider col){

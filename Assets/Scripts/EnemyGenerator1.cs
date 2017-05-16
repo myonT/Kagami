@@ -21,17 +21,24 @@ public class EnemyGenerator1 : MonoBehaviour {
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		//if (dis <= 10.0f) {		
-		InvokeRepeating ("Generate", 0, 5);		
+		InvokeRepeating ("Generate", 0, 2);		
+
 	}
 
 
 	void Update () {
 		//agent.SetDestination (target.position);
+		if (FPSScript.coinc >= 2) {
+			CancelInvoke ();
+		}
+
 	}
 
 	void Generate(){
 		Instantiate (enemy, transform.position, transform.rotation);
 	}
+
+
 	/*
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.name == "FPSControllers"){
