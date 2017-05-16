@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TestScript: MonoBehaviour {
 
 	public Text textpo;
+	public float ppp;
 
 
 	// Use this for initialization
@@ -14,8 +15,10 @@ public class TestScript: MonoBehaviour {
 	}
 		
 	void Update(){
+		ppp = TimeScript.timeLimit + FPSScript.coinc + FPSScript.countb + PlayerController.keycount;
+		Debug.Log (ppp);
 		Time.timeScale = 0;
-		textpo.text = "合計点数 : "+(TimeScript.timeLimit + FPSScript.coinc * 10 + FPSScript.countb * 10 + PlayerController.keycount * 10).ToString () + "点";
+		textpo.text = "合計点数 :" + ppp.ToString ("f0");
 	}
 	}
 	
