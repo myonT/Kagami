@@ -81,6 +81,8 @@ public class FPSScript : MonoBehaviour {
 
 		coinc = 1;
 		coin.text = "0";
+
+		shingou = false;
 	}
 
 	// Update is called once per frame
@@ -129,9 +131,11 @@ public class FPSScript : MonoBehaviour {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
 			if (hitInfo.collider.name == "Rockss") {
-				if(shingou = true)
-				Instantiate (spark, transform.position, Quaternion.identity);
-				Destroy (rock2);
+				if (countb == 2) {
+					if (shingou = true)
+						Instantiate (spark, transform.position, Quaternion.identity);
+					Destroy (rock2);
+				}
 			}
 		}
 	}
