@@ -33,20 +33,21 @@ public class FPSScript : MonoBehaviour {
 
 	public static float countb = 0;
 
-	public static float coinc = 0;
+	public static float coinc;
 
 	public float timer;
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
 
 	public bool shingou;
 
-
-
-	void Awake(){
-		//Data.Instance.HP;
-		//Data.Instance.time = 300;
+	private IEnumerator speed(){
+		iTween.PunchPosition(this.gameObject, iTween.Hash(
+			"y", 2,
+			"x", 2,
+			"time", 1.0f)
+		);
+		yield return new WaitForSeconds (2.0f);//コルーチン必要だったかは不明
 	}
-
 
 	// Use this for initialization
 	void Start () {
@@ -75,11 +76,11 @@ public class FPSScript : MonoBehaviour {
 		//inputField = GameObject.Find ("Canvas/InputField").GetComponent<InputField> ();
 		//inputField.enabled = false;
 
-		//StartCoroutine ("speed");  
-
 		sliders = GameObject.Find ("Sliderf").GetComponent<Slider> ();
 		sliders.value = Data.Instance.HP;
 
+		coinc = 1;
+		coin.text = "0";
 	}
 
 	// Update is called once per frame
@@ -89,29 +90,7 @@ public class FPSScript : MonoBehaviour {
 			search ();
 			goal ();
 		} 
-		/*
-		if (coinc != 10) {
-			if (Input.GetKey (KeyCode.LeftShift)) {
-				//e.Handled = True;
-				KeyCode.LeftShift = false;
-			} else {
-				KeyCode.LeftShift = true;
-			}
-		}
-		/*
-			IEnumerator speed () {  
-				// コルーチンの処理 がわからない
-				if (coinc == 10) {
-					if (Input.GetKey (KeyCode.LeftShift)) {
-					KeyCode.LeftShift = KeyCode.LeftShift;
-					}
-					yield return new WaitForSeconds(3.0f);
-					KeyCode.LeftShift = KeyCode.None;
-
-				}
-			}
-			*/
-		}
+	}
 
 	void PlayerDamage(){
 		Data.Instance.HP--;
@@ -119,11 +98,9 @@ public class FPSScript : MonoBehaviour {
 		Debug.Log ("give");
 		Debug.Log (Data.Instance.HP);
 		sliders.value = Data.Instance.HP;
-		iTween.ShakePosition(this.gameObject, iTween.Hash(
-			"y", 2,
-			"x", 2,
-			"time", 1.0f)
-		);
+		StartCoroutine ("speed");  
+		speed ();
+
 	}
 
 	void Shot(){
@@ -219,8 +196,9 @@ public class FPSScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.tag == "coin"){
+			Debug.Log (coinc);
 			coin.text = coinc.ToString ();
-			coinc++;		
+			coinc = coinc + 1;	
 		}
 	}
 }

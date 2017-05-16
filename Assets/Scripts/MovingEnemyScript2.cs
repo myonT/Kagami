@@ -33,7 +33,7 @@ public class MovingEnemyScript2 : MonoBehaviour {
 		float dis = Vector3.Distance (Apos, Bpos);
 		//Debug.Log ("Distance : " + dis);
 		// 目的地をプレイヤーに設定する。
-		if (dis <= 7.0f) {
+		if (dis <= 15.0f) {
 			agent.SetDestination (target.position);
 		}
 	}

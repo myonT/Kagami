@@ -12,12 +12,22 @@ public class PatrolScript: MonoBehaviour {
 
 	int enemyHP = 1;
 
+	public GameObject player;
+	//public GameObject PlayerC;
+	public GameObject enemy;
+	public Transform target;
+
+	float dis;
+
 
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> (); 
 		points = GameObject.FindGameObjectsWithTag ("point");
 		GotoNextPoint();
+
+//		GameObject player = GameObject.Find ("FPSController");
+//		target = player.transform;
 	}
 
 
@@ -31,13 +41,23 @@ public class PatrolScript: MonoBehaviour {
 			GotoNextPoint ();
 			timepo = 0;
 		}
+		/*
+		Vector3 Apos = player.transform.position;
+		Vector3 Bpos = enemy.transform.position;
+		float dis = Vector3.Distance (Apos, Bpos);
+		*/
+
 	}
+
 
 	void GotoNextPoint(){
 		int index = Random.Range(0,points.Length);
 		destination = points[index].transform.position;
-		//agent.destination = points[destination].position;
 		agent.SetDestination(destination);
+
+		//if (dis <= 7.0f) {
+			//agent.SetDestination (target.position);
+		//}
 
 
 

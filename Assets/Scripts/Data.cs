@@ -6,7 +6,7 @@ public class Data : MonoBehaviour {
 
 	public readonly static Data Instance = new Data();
 
-	public int HP = 10;
+	public int HP = 25;
 	public float time = 180.0f;
 
 	// Use this for initialization

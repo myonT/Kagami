@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 	Slider slider;
 
 	void Awake(){
-		Data.Instance.HP = 10;
+		Data.Instance.HP = 25;
 		Data.Instance.time = 180;
 		//HPtext.text = Data.Instance.HP.ToString ();
 	}
@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9.SetActive (false);
 
 		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+		slider.value = Data.Instance.HP;
 
 		//SceneManager.LoadScene("Test");
 

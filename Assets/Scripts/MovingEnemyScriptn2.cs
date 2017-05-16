@@ -37,9 +37,9 @@ public class MovingEnemyScriptn2 : MonoBehaviour {
 		Vector3 Apos = PlayerC.transform.position;
 		Vector3 Bpos = enemy.transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
-		//Debug.Log ("Distance : " + dis);
+		//Debug.Log ("Distance : " + dis);//ちょっと調子悪いっぽい
 		// 目的地をプレイヤーに設定する。
-		if (dis <= 15.0f) {
+		if (dis <= 20.0f) {
 			agent.SetDestination (target.position);//15より近づいたら動き始める
 
 		}
