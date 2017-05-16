@@ -15,7 +15,9 @@ public class TimeScript : MonoBehaviour {
 	void Update () {
 		timeLimit -= Time.deltaTime;
 		time.text = "Time : " + timeLimit.ToString ("f2");
-		//if (timeLimit < 0.02f) {
-			//SceneManager.LoadScene ("Gameover");
+
+		if (timeLimit < 0.04f) {
+			SceneManager.LoadScene ("Over");
 		}
 	}
+}

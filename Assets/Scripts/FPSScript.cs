@@ -102,6 +102,9 @@ public class FPSScript : MonoBehaviour {
 		sliders.value = Data.Instance.HP;
 		StartCoroutine ("speed");  
 		speed ();
+		if (Data.Instance.HP <= 0) {
+			SceneManager.LoadScene ("Over");
+		}
 
 	}
 

@@ -125,6 +125,9 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("give");
 		Debug.Log (Data.Instance.HP);
 		slider.value = Data.Instance.HP;
+		if (Data.Instance.HP <= 0) {
+			SceneManager.LoadScene ("Over");
+		}
 	}
 
 
