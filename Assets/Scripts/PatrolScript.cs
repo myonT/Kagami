@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolScript: MonoBehaviour {
-
+	/*
 	Transform[] points;
 	Vector3 destination;
 	UnityEngine.AI.NavMeshAgent agent; 
@@ -36,4 +36,5 @@ public class PatrolScript: MonoBehaviour {
 
 
 	}
+	*/
 }

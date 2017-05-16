@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 
 	//public static PlayerController Instance = new PlayerController();
 	//public static int HP = 10;
-	public static int keycount = 0;
+	public static float keycount = 0;
 	public static int enemycount = 0;
 
 	public Text HPtext;

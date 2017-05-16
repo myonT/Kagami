@@ -27,13 +27,13 @@ public class FPSScript : MonoBehaviour {
 	public Text coin;
 	//public static int PlayerController;
 
-	public InputField inputField;
+	//public InputField inputField;
 
 	Slider sliders;
 
-	public int countb = 0;
+	public static float countb = 0;
 
-	public float coinc = 0;
+	public static float coinc = 0;
 
 	public float timer;
 	//int PlayerHP = PlayerHPManager.Instance.playerHP;
@@ -100,7 +100,7 @@ public class FPSScript : MonoBehaviour {
 		}
 		/*
 			IEnumerator speed () {  
-				// コルーチンの処理 
+				// コルーチンの処理 がわからない
 				if (coinc == 10) {
 					if (Input.GetKey (KeyCode.LeftShift)) {
 					KeyCode.LeftShift = KeyCode.LeftShift;
@@ -114,9 +114,6 @@ public class FPSScript : MonoBehaviour {
 		}
 
 	void PlayerDamage(){
-		//int PlayerHP = PlayerHPManager.Instance.playerHP;
-		//PlayerHP--;
-		//HPtext.text = PlayerHP.ToString ();
 		Data.Instance.HP--;
 		HPtext.text = Data.Instance.HP.ToString ();
 		Debug.Log ("give");
@@ -214,9 +211,8 @@ public class FPSScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
-			if (hitInfo.collider.name == "Goal") {
-				SceneManager.LoadScene("07");
-				
+			if(hitInfo.collider.tag == "Next"){
+				SceneManager.LoadScene("07");	
 		}
 	}
 }
