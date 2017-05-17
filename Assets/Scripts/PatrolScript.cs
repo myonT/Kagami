@@ -13,11 +13,12 @@ public class PatrolScript: MonoBehaviour {
 	int enemyHP = 1;
 
 	public GameObject player;
-	//public GameObject PlayerC;
 	public GameObject enemy;
 	public Transform target;
 
 	float dis;
+
+	bool disance = true;
 
 
 	// Use this for initialization
@@ -26,8 +27,8 @@ public class PatrolScript: MonoBehaviour {
 		points = GameObject.FindGameObjectsWithTag ("point");
 		GotoNextPoint();
 
-//		GameObject player = GameObject.Find ("FPSController");
-//		target = player.transform;
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		target = player.transform;
 	}
 
 
@@ -37,16 +38,27 @@ public class PatrolScript: MonoBehaviour {
 	void Update () {
 		timepo += Time.deltaTime;
 
-		if (timepo > 20.0f) {
-			GotoNextPoint ();
-			timepo = 0;
+		//ここのGoNectPointがPlayerとの距離が近づいた後も呼ばれてしまっている
+		//ので①の中に入った後は呼ばれないような処理を追加すればいける
+		if(disance = true){
+			if (timepo > 20.0f) {
+				GotoNextPoint ();
+				timepo = 0;
+			}
 		}
-		/*
+
+
 		Vector3 Apos = player.transform.position;
 		Vector3 Bpos = enemy.transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
-		*/
 
+		if (dis <= 20.0f) {
+			//①
+			agent.SetDestination (target.position);
+			disance = false;
+		} else if (dis > 20.0f) {
+			disance = true;
+		}
 	}
 
 
@@ -55,13 +67,9 @@ public class PatrolScript: MonoBehaviour {
 		destination = points[index].transform.position;
 		agent.SetDestination(destination);
 
-		//if (dis <= 7.0f) {
+		//if (dis <= 20.0f) {
 			//agent.SetDestination (target.position);
-		//}
-
-
-
-	}
+		}
 
 	void Damage(){
 		enemyHP -= 1;

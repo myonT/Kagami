@@ -20,7 +20,7 @@ public class MovingEnemyScriptn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject player = GameObject.Find ("FPSController");
+		GameObject player = GameObject.FindGameObjectWithTag ("FPSController");
 		Debug.Log (player);
 		target = player.transform;
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> (); 

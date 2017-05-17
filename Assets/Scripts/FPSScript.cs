@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 
 public class FPSScript : MonoBehaviour {
@@ -213,7 +214,16 @@ public class FPSScript : MonoBehaviour {
 			Debug.Log (coinc);
 			coin.text = coinc.ToString ();
 			coinc = coinc + 1;	
+
+			//coinの数が一定以上になったら
+			//if(coinc >= 10){
+				if (Input.GetKeyDown(KeyCode.N)){
+					GetComponent<FirstPersonController> ().m_WalkSpeed = 15f;
+					coinc = coinc - 10;
+				} //else {
+					//GetComponent<FirstPersonController> ().m_WalkSpeed = 7f;
+				//}
+			}
 		}
 	}
-}
-
+//}
