@@ -24,8 +24,8 @@ public class MovingEnemyScriptn2 : MonoBehaviour {
 		Debug.Log (player);
 		target = player.transform;
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> (); 
-		if (dis <= 7.0f) {
-			agent.speed = 8;//7より近づいたら早くなる
+		if (dis <= 10.0f) {
+			agent.speed = 15;//7より近づいたら早くなる
 
 		}
 		//player = GameObject.FindGameObjectWithTag ("Player");
