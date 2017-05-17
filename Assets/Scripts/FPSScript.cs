@@ -216,14 +216,14 @@ public class FPSScript : MonoBehaviour {
 			coinc = coinc + 1;	
 
 			//coinの数が一定以上になったら
-			//if(coinc >= 10){
-				if (Input.GetKeyDown(KeyCode.N)){
-					GetComponent<FirstPersonController> ().m_WalkSpeed = 15f;
+			if(coinc >= 10){
+				//if (Input.GetKeyDown(KeyCode.N)){
+				GetComponent<FirstPersonController> ().m_WalkSpeed = GetComponent<FirstPersonController> ().m_WalkSpeed  + 1;
 					coinc = coinc - 10;
 				} //else {
 					//GetComponent<FirstPersonController> ().m_WalkSpeed = 7f;
-				//}
+				}
 			}
 		}
-	}
+	//}
 //}

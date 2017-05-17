@@ -40,12 +40,10 @@ public class PatrolScript: MonoBehaviour {
 
 		//ここのGoNectPointがPlayerとの距離が近づいた後も呼ばれてしまっている
 		//ので①の中に入った後は呼ばれないような処理を追加すればいける
-		if(disance = true){
-			if (timepo > 20.0f) {
+		if (timepo > 20.0f && disance == true) {
 				GotoNextPoint ();
 				timepo = 0;
 			}
-		}
 
 
 		Vector3 Apos = player.transform.position;
@@ -67,9 +65,10 @@ public class PatrolScript: MonoBehaviour {
 		destination = points[index].transform.position;
 		agent.SetDestination(destination);
 
-		//if (dis <= 20.0f) {
-			//agent.SetDestination (target.position);
-		}
+//		if (dis <= 20.0f) {
+//			agent.SetDestination (target.position);
+//		}
+	}
 
 	void Damage(){
 		enemyHP -= 1;
