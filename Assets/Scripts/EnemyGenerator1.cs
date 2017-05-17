@@ -14,6 +14,10 @@ public class EnemyGenerator1 : MonoBehaviour {
 
 	float dis;		
 
+	//ここでboolのflagを作る
+	bool isDis5, isDis10;
+
+
 	//bool isCalled = false;		
 
 
@@ -27,6 +31,24 @@ public class EnemyGenerator1 : MonoBehaviour {
 
 
 	void Update () {
+
+		//ここで距離を測って
+		//else ifを使う際は厳しい条件から徐々に緩めていく
+
+		if (dis < 5f /* && isDis5がtrueなら*/) {
+			CancelInvoke ();
+			//ここでisDis5をfalseに
+			//ここでInvoke
+		} else if (dis < 10f /* && isDis10がtrueなら*/) { //これはelseをつけないで if(5f <= dis && dis < 10f)と同じ。でも5f との比較を二回書くのはいけてない
+			CancelInvoke ();
+			//ここでisDis10をfalseに
+			//ここでInvoke
+		} else {
+			CancelInvoke ();
+			//isDis5, isDis10 ともにtrueに戻す。
+		}
+
+
 		//agent.SetDestination (target.position);
 		if (FPSScript.coinc >= 2) {
 			CancelInvoke ();

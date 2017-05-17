@@ -47,13 +47,6 @@ public class PuaseScript : MonoBehaviour {
 		Timep.text = "Time :" + TimeScript.timeLimit.ToString ("f1");
 		Itemp.text = "Item :" + (FPSScript.countb + PlayerController.keycount).ToString();
 		Coinp.text = "Coin :" + (FPSScript.coinc-1).ToString();
-
-
-		//FirstPersonController fpc = player.GetComponent<FirstPersonController>();
-		//fpc.enabled = false;
-
-		//Cursor.lockState = CursorLockMode.None;     // 標準モード
-		//Cursor.visible = true;    // カーソル表示
 	}
 
 	public void OnUnPause()
@@ -63,11 +56,6 @@ public class PuaseScript : MonoBehaviour {
 		Time.timeScale = 1;
 		pauseGame = false;
 		C1.SetActive (true);
-		//FirstPersonController fpc = player.GetComponent<FirstPersonController>();
-		//fpc.enabled = true;
-
-		//Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
-		//Cursor.visible = false;     // カーソル非表示
 	}
 }
 
