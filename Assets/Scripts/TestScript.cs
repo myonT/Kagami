@@ -15,7 +15,7 @@ public class TestScript: MonoBehaviour {
 	}
 		
 	void Update(){
-		ppp = TimeScript.timeLimit + FPSScript.coinc + FPSScript.countb + PlayerController.keycount;
+		ppp = TimeScript.timeLimit + FPSScript.coinc + FPSScript.countb + PlayerController.keycount + PlayerController.enemycount;
 		Debug.Log (ppp);
 		Time.timeScale = 0;
 		textpo.text = "合計点数 :" + ppp.ToString ("f0");

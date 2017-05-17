@@ -39,12 +39,14 @@ public class PlayerController : MonoBehaviour {
 
 //	int PlayerHP = PlayerHP Manager.Instance.playerHP;
 
-	Slider slider;
+	Slider sliders;
 
 	void Awake(){
 		Data.Instance.HP = 25;
 		Data.Instance.time = 180;
 		//HPtext.text = Data.Instance.HP.ToString ();
+		sliders = GameObject.Find ("Sliders").GetComponent<Slider> ();
+		sliders.value = Data.Instance.HP;
 	}
 
 
@@ -97,8 +99,8 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9 = GameObject.Find ("itembtnkey9");
 		itembtnkey9.SetActive (false);
 
-		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
-		slider.value = Data.Instance.HP;
+		//sliders = GameObject.Find ("Sliders").GetComponent<Slider> ();
+		//sliders.value = Data.Instance.HP;
 
 		//SceneManager.LoadScene("Test");
 
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour {
 		HPtext.text = Data.Instance.HP.ToString ();
 		Debug.Log ("give");
 		Debug.Log (Data.Instance.HP);
-		slider.value = Data.Instance.HP;
+		sliders.value = Data.Instance.HP;
 		if (Data.Instance.HP <= 0) {
 			SceneManager.LoadScene ("Over");
 		}

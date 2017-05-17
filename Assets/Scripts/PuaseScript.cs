@@ -12,10 +12,12 @@ public class PuaseScript : MonoBehaviour {
 	private bool pauseGame = false;
 
 
+
 	// Use this for initialization
 	void Start () {
 
-		OnUnPause ();
+		OnPause ();
+	
 		
 	}
 	
