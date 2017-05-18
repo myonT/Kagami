@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyGenerator1 : MonoBehaviour {
 
 	public GameObject enemy;
-	//public GameObject Gene;   //時間があったら近づいてスポーン実装する
+	//public GameObject Gene; 
 	public GameObject PlayerC;
 	//public int keycount;
 	//public int diss = 2;
