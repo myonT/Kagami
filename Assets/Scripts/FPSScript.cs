@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 
+
 public class FPSScript : MonoBehaviour {
 
 	public Camera camera;
@@ -27,6 +28,9 @@ public class FPSScript : MonoBehaviour {
 
 	public Text HPtext;
 	public Text coin;
+
+//	public AudioClip audioClip;
+//	AudioSource audioSource;
 
 	//public static int PlayerController;
 
@@ -89,6 +93,8 @@ public class FPSScript : MonoBehaviour {
 		coin.text = "0";
 
 		shingou = false;
+
+		AudioManager.Instance.PlayBGM ("bgm");
 
 
 	}
@@ -209,6 +215,7 @@ public class FPSScript : MonoBehaviour {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
 			if(hitInfo.collider.tag == "Next"){
+				AudioManager.Instance.PlaySE ("door");
 				SceneManager.LoadScene("07");	
 		}
 	}
@@ -216,6 +223,7 @@ public class FPSScript : MonoBehaviour {
 			Debug.DrawLine (ray.origin, hitInfo.point, Color.blue);
 			Debug.Log (hitInfo.collider.name);
 			if(hitInfo.collider.name == "Goalb"){
+				AudioManager.Instance.PlaySE ("door");
 				SceneManager.LoadScene("Over");	
 			}
 		}
@@ -226,6 +234,7 @@ public class FPSScript : MonoBehaviour {
 			Debug.Log (coinc);
 			coin.text = coinc.ToString ();
 			coinc = coinc + 1;	
+			//audioSource.Play ();
 
 			//coinの数が一定以上になったら
 			if(coinc >= 10){

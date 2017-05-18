@@ -23,6 +23,7 @@ public class RockScript : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.gameObject.name == "FPSControllers"){
 			Debug.Log (GetComponent<Collider>().name);
+			AudioManager.Instance.PlaySE ("rock");
 			Generate ();
 		}
 }

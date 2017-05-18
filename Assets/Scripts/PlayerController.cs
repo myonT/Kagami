@@ -99,10 +99,7 @@ public class PlayerController : MonoBehaviour {
 		itembtnkey9 = GameObject.Find ("itembtnkey9");
 		itembtnkey9.SetActive (false);
 
-		//sliders = GameObject.Find ("Sliders").GetComponent<Slider> ();
-		//sliders.value = Data.Instance.HP;
-
-		//SceneManager.LoadScene("Test");
+		AudioManager.Instance.PlayBGM ("bgm");
 
 
 	}
@@ -231,7 +228,8 @@ public class PlayerController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hitInfo, distance)) {
 			if(hitInfo.collider.tag == "Next"){
-				//if(keycount>=5){
+				if(keycount>=5){
+					AudioManager.Instance.PlaySE ("door");
 					SceneManager.LoadScene("06");
 				//}
 			}
@@ -243,4 +241,5 @@ public class PlayerController : MonoBehaviour {
 			//other.gameObject.SendMessage ("PlayerDamage");
 		//	Destroy(gameObject);			
 		}
+}
 	

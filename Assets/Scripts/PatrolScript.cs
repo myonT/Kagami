@@ -13,7 +13,7 @@ public class PatrolScript: MonoBehaviour {
 	int enemyHP = 1;
 
 	public GameObject player;
-	public GameObject enemy;
+	//public GameObject enemy;
 	public Transform target;
 
 	float dis;
@@ -47,7 +47,7 @@ public class PatrolScript: MonoBehaviour {
 
 
 		Vector3 Apos = player.transform.position;
-		Vector3 Bpos = enemy.transform.position;
+		Vector3 Bpos = transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
 
 		if (dis <= 20.0f) {
