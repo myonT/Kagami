@@ -23,9 +23,11 @@ public class FPSScript : MonoBehaviour {
 	public GameObject spark;
 	public GameObject rock;
 	public GameObject rock2;
+	public GameObject damagei;
 
 	public Text HPtext;
 	public Text coin;
+
 	//public static int PlayerController;
 
 	//public InputField inputField;
@@ -74,6 +76,9 @@ public class FPSScript : MonoBehaviour {
 		blueballshi = GameObject.Find ("blueballshi");
 		blueballshi.SetActive (false);
 
+		damagei = GameObject.Find ("damage");
+		damagei.SetActive (false);
+
 		//inputField = GameObject.Find ("Canvas/InputField").GetComponent<InputField> ();
 		//inputField.enabled = false;
 
@@ -84,6 +89,8 @@ public class FPSScript : MonoBehaviour {
 		coin.text = "0";
 
 		shingou = false;
+
+
 	}
 
 	// Update is called once per frame
@@ -103,6 +110,11 @@ public class FPSScript : MonoBehaviour {
 		sliders.value = Data.Instance.HP;
 		StartCoroutine ("speed");  
 		speed ();
+		if (Data.Instance.HP > 5) {
+			damagei.SetActive (false);
+		}else{
+			damagei.SetActive (true);
+		}
 		if (Data.Instance.HP <= 0) {
 			SceneManager.LoadScene ("Over");
 		}
