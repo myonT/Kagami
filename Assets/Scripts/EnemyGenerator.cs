@@ -5,17 +5,11 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour {
 
 	public GameObject enemy;
-	//public GameObject Gene;  
-	//public int keycount;
-	//public int diss = 2;
 	public Transform target;
 	UnityEngine.AI.NavMeshAgent agent; 
 
 	float dis;		
 			
-	//bool isCalled = false;		
-
-
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
@@ -32,13 +26,5 @@ public class EnemyGenerator : MonoBehaviour {
 	void Generate(){
 			Instantiate (enemy, transform.position, transform.rotation);
 		}
-	/*
-	void OnTriggerEnter(Collider col){
-		if(col.gameObject.name == "FPSControllers"){
-			Debug.Log (GetComponent<Collider>().name);
-			InvokeRepeating ("Generate", 0, 5);
-		}
-	}
-	*/
 	}
 

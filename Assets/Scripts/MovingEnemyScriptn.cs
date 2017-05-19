@@ -8,7 +8,7 @@ public class MovingEnemyScriptn : MonoBehaviour {
 	UnityEngine.AI.NavMeshAgent agent; 
 
 
-	public GameObject enemy;
+	//public GameObject enemy;
 	public GameObject PlayerC;
 	public float speed;
 	GameObject player; //プレイヤー
@@ -24,24 +24,21 @@ public class MovingEnemyScriptn : MonoBehaviour {
 		Debug.Log (player);
 		target = player.transform;
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> (); 
-		if (dis <= 7.0f) {
-			agent.speed = 8;//7より近づいたら早くなる
-
-		}
-		//player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 		Vector3 Apos = PlayerC.transform.position;
-		Vector3 Bpos = enemy.transform.position;
+		Vector3 Bpos = transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
 		//Debug.Log ("Distance : " + dis);
 		// 目的地をプレイヤーに設定する。
 		if (dis <= 15.0f) {
 			agent.SetDestination (target.position);//15より近づいたら動き始める
-
+		}
+		if (dis <= 7.0f) {
+			agent.speed = 8;//7より近づいたら早くなる
 		}
 	}
 

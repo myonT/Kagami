@@ -8,7 +8,7 @@ public class MovingEnemyScript : MonoBehaviour {
 	UnityEngine.AI.NavMeshAgent agent; 
 
 
-	public GameObject enemy;
+	//public GameObject enemy;
 	public GameObject PlayerC;
 	GameObject player; //プレイヤー
 
@@ -30,7 +30,7 @@ public class MovingEnemyScript : MonoBehaviour {
 	void Update () {
 
 		Vector3 Apos = PlayerC.transform.position;
-		Vector3 Bpos = enemy.transform.position;
+		Vector3 Bpos = transform.position;
 		float dis = Vector3.Distance (Apos, Bpos);
 		//Debug.Log ("Distance : " + dis);
 		// 目的地をプレイヤーに設定する。
